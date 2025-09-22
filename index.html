@@ -71,38 +71,29 @@
 
         .menu-toggle {
             display: none;
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
+            background: transparent;
+            border: none;
             cursor: pointer;
-            padding: 0.5rem 0.6rem;
+            padding: 8px;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
             transition: all 0.2s ease;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .menu-toggle:hover {
-            background: #f9fafb;
-            border-color: #2563eb;
-            box-shadow: 0 2px 5px rgba(37, 99, 235, 0.2);
+            opacity: 0.7;
         }
 
         .menu-toggle:active {
-            transform: scale(0.98);
+            transform: scale(0.95);
         }
 
         .menu-toggle span {
             display: block;
-            width: 24px;
+            width: 28px;
             height: 3px;
-            background: #4a5568;
-            border-radius: 2px;
-            transition: background 0.2s ease;
-        }
-
-        .menu-toggle:hover span {
             background: #2563eb;
+            border-radius: 2px;
         }
 
         .contact-info {
