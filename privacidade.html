@@ -21,7 +21,7 @@
 
         header {
             background: white;
-            padding: 1.5rem 0;
+            padding: 1rem 0;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
@@ -29,13 +29,45 @@
             z-index: 1000;
         }
 
-        nav {
+        .header-container {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #2563eb;
+        }
+
+        .breadcrumb-separator {
+            color: #d1d5db;
+        }
+
+        .breadcrumb-current {
+            color: #2563eb;
+            font-weight: 500;
         }
 
         .logo {
@@ -208,17 +240,38 @@
             }
 
             nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .header-container {
                 padding: 0 1rem;
+            }
+
+            .breadcrumb {
+                display: none;
+            }
+
+            .btn-voltar {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="index.html" class="logo">TZ <span>Soluções</span></a>
-            <a href="index.html" class="btn-voltar">← Voltar ao Site</a>
-        </nav>
+        <div class="header-container">
+            <nav>
+                <a href="index.html" class="logo">TZ <span>Soluções</span></a>
+                <a href="index.html" class="btn-voltar">← Voltar ao Site</a>
+            </nav>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Política de Privacidade</span>
+            </div>
+        </div>
     </header>
 
     <div class="container">
