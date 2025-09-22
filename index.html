@@ -82,12 +82,11 @@
             height: 42px;
             justify-content: center;
             align-items: center;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, transform 0.1s ease;
         }
 
         .menu-toggle:hover {
             background: #dbeafe;
-            transform: scale(1.05);
         }
 
         .menu-toggle:active {
@@ -99,29 +98,7 @@
             width: 22px;
             height: 2.5px;
             background: #2563eb;
-            transition: all 0.3s ease;
             border-radius: 3px;
-        }
-
-        .menu-toggle.active {
-            background: #2563eb;
-        }
-
-        .menu-toggle.active span {
-            background: white;
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-            transform: translateX(20px);
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
         }
 
         .contact-info {
@@ -1111,14 +1088,12 @@
         if (menuToggle) {
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
-                menuToggle.classList.toggle('active');
             });
 
             // Fechar menu ao clicar em um link
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
-                    menuToggle.classList.remove('active');
                 });
             });
         }
