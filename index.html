@@ -71,34 +71,38 @@
 
         .menu-toggle {
             display: none;
-            background: #eff6ff;
-            border: 2px solid #2563eb;
-            border-radius: 8px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
             cursor: pointer;
-            padding: 0.6rem;
+            padding: 0.5rem 0.6rem;
             flex-direction: column;
-            gap: 5px;
-            width: 42px;
-            height: 42px;
-            justify-content: center;
-            align-items: center;
-            transition: background 0.3s ease, transform 0.1s ease;
+            gap: 6px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .menu-toggle:hover {
-            background: #dbeafe;
+            background: #f9fafb;
+            border-color: #2563eb;
+            box-shadow: 0 2px 5px rgba(37, 99, 235, 0.2);
         }
 
         .menu-toggle:active {
-            transform: scale(0.95);
+            transform: scale(0.98);
         }
 
         .menu-toggle span {
             display: block;
-            width: 22px;
-            height: 2.5px;
+            width: 24px;
+            height: 3px;
+            background: #4a5568;
+            border-radius: 2px;
+            transition: background 0.2s ease;
+        }
+
+        .menu-toggle:hover span {
             background: #2563eb;
-            border-radius: 3px;
         }
 
         .contact-info {
