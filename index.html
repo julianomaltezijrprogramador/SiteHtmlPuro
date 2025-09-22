@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TZ Soluções - Sistema ERP e Soluções Tecnológicas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+        }
+
+        header {
+            background: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2563eb;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo span {
+            font-weight: 400;
+            color: #1a202c;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #4a5568;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            background: linear-gradient(to bottom right, #eff6ff, #dbeafe);
+            padding: 150px 2rem 100px;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .highlight {
+            color: #2563eb;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+        }
+
+        .hero-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .hero-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+
+        .hero-features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.75rem;
+            background: #d1fae5;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 2px solid #2563eb;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #eff6ff;
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: #dbeafe;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+        }
+
+        .service-card li {
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: "•";
+            color: #2563eb;
+            position: absolute;
+            left: 0;
+        }
+
+        .about-section {
+            background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-stat {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .about-stat-icon {
+            width: 48px;
+            height: 48px;
+            background: #dbeafe;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .about-stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 0.25rem;
+        }
+
+        .about-stat-label {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .about-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .about-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+
+        .about-list li::before {
+            content: "•";
+            color: #2563eb;
+            font-weight: bold;
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .highlight-box h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+        }
+
+        .highlight-box li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .highlight-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        .contact-info-box {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .contact-info-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: #dbeafe;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .schedule-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .schedule-box h4 {
+            margin-bottom: 1rem;
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            color: #4a5568;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .form-submit:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+
+        .footer-about {
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background: #374151;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #2563eb;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #9ca3af;
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#inicio" class="logo" style="text-decoration: none;">TZ <span>Soluções</span></a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="contact-info">
+                <a href="https://api.whatsapp.com/send?phone=5516991589900&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20sobre%20como%20adquirir%20um%20software%20*TZ%20Solu%C3%A7%C3%B5es*." target="_blank" style="color: #4a5568; text-decoration: none;">📞 (16) 99158-9900</a>
+                <span>✉️ Contato</span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div>
+                <h1>Soluções <span class="highlight">Completas</span> para sua Empresa</h1>
+                <p>Gestão integrada e eficiente para empresas de todos os tamanhos e segmentos. Simplificamos seus processos com tecnologia acessível na web, no computador e na palma da sua mão.</p>
+                <ul class="hero-features">
+                    <li>Soluções práticas para o dia a dia do seu negócio</li>
+                    <li>Atendemos diversos segmentos: agro, indústria, comércio e serviços</li>
+                    <li>Acesse de qualquer lugar: web, desktop ou mobile</li>
+                </ul>
+                <div class="hero-buttons">
+                    <a href="https://api.whatsapp.com/send?phone=5516991589900&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20sobre%20como%20adquirir%20um%20software%20*TZ%20Solu%C3%A7%C3%B5es*." target="_blank" class="btn-primary">Solicitar Orçamento →</a>
+                    <a href="#servicos" class="btn-secondary">Nossos Serviços</a>
+                </div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">1500+</div>
+                        <div class="stat-label">Projetos Entregues</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Satisfação</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Suporte</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="servicos">
+        <h2 class="section-title">Soluções para seu Negócio</h2>
+        <p class="section-subtitle">Ajudamos empresas de diversos segmentos a crescer com ferramentas práticas e eficientes. Tudo integrado para facilitar sua gestão.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🌾</div>
+                <h3>Agronegócio</h3>
+                <p>Controle completo da sua propriedade rural, desde o plantio até a comercialização.</p>
+                <ul>
+                    <li>Gestão de safras e insumos</li>
+                    <li>Controle de maquinário</li>
+                    <li>Análise de resultados</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏭</div>
+                <h3>Indústria e Química</h3>
+                <p>Soluções para controle de produção, qualidade e conformidade industrial.</p>
+                <ul>
+                    <li>Controle de produção</li>
+                    <li>Rastreabilidade de lotes</li>
+                    <li>Gestão de qualidade</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛒</div>
+                <h3>Comércio e Vendas</h3>
+                <p>Aumente suas vendas com gestão completa de clientes, estoque e faturamento.</p>
+                <ul>
+                    <li>Controle de vendas</li>
+                    <li>Gestão de estoque</li>
+                    <li>Emissão de notas fiscais</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📄</div>
+                <h3>Documentos Fiscais</h3>
+                <p>Emissão completa de documentos fiscais e obrigações acessórias.</p>
+                <ul>
+                    <li>NF-e, NFC-e, NFS-e</li>
+                    <li>CT-e, MDF-e, CF-e</li>
+                    <li>SPED Fiscal e Contribuição</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>MAPA e Órgãos Públicos</h3>
+                <p>Relatórios e mapas para órgãos reguladores e fiscalizadores.</p>
+                <ul>
+                    <li>MAPA Ministério da Agricultura</li>
+                    <li>MAPA Exército, PF e PC</li>
+                    <li>Conformidade legal</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Gestão Financeira</h3>
+                <p>Tenha total controle do fluxo de caixa e saúde financeira do seu negócio.</p>
+                <ul>
+                    <li>Contas a pagar e receber</li>
+                    <li>Fluxo de caixa</li>
+                    <li>Relatórios gerenciais</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Análises e Relatórios</h3>
+                <p>Decisões baseadas em dados com relatórios completos e dashboards intuitivos.</p>
+                <ul>
+                    <li>Indicadores de desempenho</li>
+                    <li>Análise de vendas</li>
+                    <li>Relatórios personalizados</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Acesse de Qualquer Lugar</h3>
+                <p>Seus dados sempre disponíveis: no escritório, em casa ou no campo.</p>
+                <ul>
+                    <li>Aplicativo para Celular</li>
+                    <li>Sistema para Computador</li>
+                    <li>Sincronização automática</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section about-section" id="sobre">
+        <h2 class="section-title">Sobre a TZ Soluções</h2>
+        <p class="section-subtitle">Há mais de 12 anos ajudando empresas a crescerem com tecnologia simples e eficiente. Do agronegócio à indústria, oferecemos soluções que realmente fazem a diferença no seu dia a dia.</p>
+        <div class="about-content">
+            <div>
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <div class="about-stat-icon">👥</div>
+                        <div class="about-stat-number">1000+</div>
+                        <div class="about-stat-label">Empresas Atendidas</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-icon">🏆</div>
+                        <div class="about-stat-number">1500+</div>
+                        <div class="about-stat-label">Projetos Entregues</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-icon">⏰</div>
+                        <div class="about-stat-number">12+</div>
+                        <div class="about-stat-label">Anos de Experiência</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-icon">🎯</div>
+                        <div class="about-stat-number">98%</div>
+                        <div class="about-stat-label">Clientes Satisfeitos</div>
+                    </div>
+                </div>
+                <h3>Nossa Missão</h3>
+                <p style="color: #4a5568; margin-bottom: 1rem;">Simplificar a gestão empresarial com tecnologia acessível e eficiente, ajudando nossos clientes a focarem no que realmente importa: fazer seus negócios crescerem.</p>
+            </div>
+            <div class="about-info">
+                <h3>Segmentos que Atendemos</h3>
+                <ul class="about-list">
+                    <li>Agronegócio - produtores rurais, cooperativas e agroindústrias</li>
+                    <li>Indústria Química - controle de produção e qualidade</li>
+                    <li>Comércio - lojas, distribuidoras e atacadistas</li>
+                    <li>Serviços - empresas de diversos setores</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>Por que escolher a TZ Soluções?</h4>
+                    <ul>
+                        <li>Soluções práticas e fáceis de usar</li>
+                        <li>Suporte especializado sempre disponível</li>
+                        <li>Tecnologia adaptada à sua realidade</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contato">
+        <h2 class="section-title">Entre em Contato</h2>
+        <p class="section-subtitle">Pronto para transformar sua ideia em realidade? Fale conosco e descubra como podemos ajudar seu negócio a crescer.</p>
+        <div class="contact-content">
+            <div class="contact-info-box">
+                <h3>Vamos conversar!</h3>
+                <p style="color: #4a5568; margin-bottom: 1.5rem;">Nossa equipe está pronta para entender suas necessidades e propor a melhor solução para seu projeto.</p>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <strong>Endereço</strong><br>
+                        <span style="color: #4a5568;">Av. Maria de Jesus Condeixa, 600, Sala 610<br>Ribeirão Preto, SP - Brasil</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <strong>Telefone / WhatsApp</strong><br>
+                        <a href="https://api.whatsapp.com/send?phone=5516991589900&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20sobre%20como%20adquirir%20um%20software%20*TZ%20Solu%C3%A7%C3%B5es*." target="_blank" style="color: #4a5568; text-decoration: none;">(16) 99158-9900</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <strong>E-mail</strong><br>
+                        <span style="color: #4a5568;">atendimento@tzsolucoes.com.br</span>
+                    </div>
+                </div>
+                <div class="schedule-box">
+                    <h4>Horário de Atendimento</h4>
+                    <div class="schedule-item">
+                        <span>Segunda a Sexta:</span>
+                        <span>07:45 - 18:30</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Sábado:</span>
+                        <span>08:00 - 12:00</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Suporte Urgente:</span>
+                        <span>24/7</span>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="return handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome *</label>
+                        <input type="text" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" placeholder="(16) 99999-9999">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>E-mail *</label>
+                    <input type="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Assunto *</label>
+                    <select required>
+                        <option value="">Selecione um assunto</option>
+                        <option value="agro">Agronegócio</option>
+                        <option value="industria">Indústria e Química</option>
+                        <option value="comercio">Comércio e Vendas</option>
+                        <option value="fiscal">Documentos Fiscais (NF-e, CT-e, MDF-e, etc)</option>
+                        <option value="mapa">MAPA e Órgãos Públicos</option>
+                        <option value="financeiro">Gestão Financeira</option>
+                        <option value="analise">Análises e Relatórios</option>
+                        <option value="demonstracao">Solicitar Demonstração</option>
+                        <option value="suporte">Suporte Técnico</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mensagem *</label>
+                    <textarea placeholder="Conte-nos sobre seu projeto ou necessidade..." required></textarea>
+                </div>
+                <button type="submit" class="form-submit">
+                    ✈️ Enviar Mensagem
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">TZ Soluções</div>
+                <p class="footer-about">Há mais de 12 anos transformando a gestão de empresas do agronegócio, indústria e comércio com soluções práticas e eficientes.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/tz-solu%C3%A7%C3%B5es-b30138375/" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/tzsolucoes/" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=5516991589900&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20sobre%20como%20adquirir%20um%20software%20*TZ%20Solu%C3%A7%C3%B5es*." target="_blank" rel="noopener noreferrer" class="social-icon" title="WhatsApp">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Soluções</h4>
+                <ul class="footer-links">
+                    <li><a href="#servicos">Agronegócio</a></li>
+                    <li><a href="#servicos">Indústria e Química</a></li>
+                    <li><a href="#servicos">Comércio e Vendas</a></li>
+                    <li><a href="#servicos">Documentos Fiscais</a></li>
+                    <li><a href="#servicos">MAPA e Órgãos Públicos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#sobre">Nossa Equipe</a></li>
+                    <li><a href="#sobre">Cases de Sucesso</a></li>
+                    <li><a href="#contato">Carreira</a></li>
+                    <li><a href="#contato">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <ul class="footer-links">
+                    <li><a href="https://api.whatsapp.com/send?phone=5516991589900&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20sobre%20como%20adquirir%20um%20software%20*TZ%20Solu%C3%A7%C3%B5es*." target="_blank">📞 (16) 99158-9900</a></li>
+                    <li><a href="https://www.linkedin.com/in/tz-solu%C3%A7%C3%B5es-b30138375/" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/tzsolucoes/" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TZ Soluções. Todos os direitos reservados.</p>
+            <div class="footer-legal">
+                <a href="privacidade.html">Política de Privacidade</a>
+                <a href="privacidade.html#termos">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Função para enviar formulário via WhatsApp
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const nome = form.querySelector('input[type="text"]').value;
+            const telefone = form.querySelector('input[type="tel"]').value;
+            const email = form.querySelector('input[type="email"]').value;
+            const assuntoSelect = form.querySelector('select');
+            const assunto = assuntoSelect.options[assuntoSelect.selectedIndex].text;
+            const mensagem = form.querySelector('textarea').value;
+            
+            // Monta a mensagem para o WhatsApp
+            let textoWhatsApp = 'Olá, sou *' + nome + '*\n\n';
+            textoWhatsApp += '*Assunto:* ' + assunto + '\n\n';
+            textoWhatsApp += '*Email:* ' + email + '\n';
+            if (telefone) {
+                textoWhatsApp += '*Telefone:* ' + telefone + '\n';
+            }
+            textoWhatsApp += '\n*Mensagem:*\n' + mensagem;
+            
+            // Codifica a mensagem para URL
+            const mensagemCodificada = encodeURIComponent(textoWhatsApp);
+            
+            // Abre o WhatsApp com a mensagem
+            const urlWhatsApp = 'https://api.whatsapp.com/send?phone=5516991589900&text=' + mensagemCodificada;
+            window.open(urlWhatsApp, '_blank');
+            
+            return false;
+        }
+
+        // Intersection Observer para animações
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
