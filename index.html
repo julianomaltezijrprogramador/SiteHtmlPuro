@@ -71,33 +71,57 @@
 
         .menu-toggle {
             display: none;
-            background: none;
-            border: none;
+            background: #eff6ff;
+            border: 2px solid #2563eb;
+            border-radius: 8px;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 0.6rem;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
+            width: 42px;
+            height: 42px;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: #dbeafe;
+            transform: scale(1.05);
+        }
+
+        .menu-toggle:active {
+            transform: scale(0.95);
         }
 
         .menu-toggle span {
             display: block;
-            width: 25px;
-            height: 3px;
+            width: 22px;
+            height: 2.5px;
             background: #2563eb;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             border-radius: 3px;
         }
 
+        .menu-toggle.active {
+            background: #2563eb;
+        }
+
+        .menu-toggle.active span {
+            background: white;
+        }
+
         .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(45deg) translate(6px, 6px);
         }
 
         .menu-toggle.active span:nth-child(2) {
             opacity: 0;
+            transform: translateX(20px);
         }
 
         .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
+            transform: rotate(-45deg) translate(6px, -6px);
         }
 
         .contact-info {
